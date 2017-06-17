@@ -1,0 +1,22 @@
+container()
+  margin 0 auto
+  max-width 940px + ($unit_spacing * 2)
+  padding 0 $unit_spacing
+  width 100%
+
+// @stylint off
+placeholder()
+  &::-webkit-input-placeholder
+    {block}
+  &:-moz-placeholder
+    {block}
+  &::-moz-placeholder
+    {block}
+  &:-ms-input-placeholder
+    {block}
+// @stylint on
+
+
+breakpoint($size)
+  @media screen and (min-width: lookup('$breakpoint_' + $size))
+    {block}

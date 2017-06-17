@@ -35,9 +35,16 @@ Esse *starter kit* contém algumas tasks simples que agilizam no desenvolvimento
 * Um script de build para agrupar JS, CSS e imagens para produção, com *sourcemaps*
 * Um *service-worker offline-first*  e um manifesto *web app*, que atende todos os criterios de *Progressive Web Apps*
 
+### [Stylus](http://stylus-lang.com/)
+> Pré-processador CSS baseado em NodeJS e que pussuí sintaxe próxima do Javascript convencional.
+
+Em muitas ocasiões pré-processadores CSS são uteis para reaproveitamento de código: configuração de variaveis, mixins, funcões, etc.
+
+O *Create React App* não possui nenhum pré-processador CSS integrado, portanto decidi escolher e configurar o *Stylus* pela simplicidade da sintaxe e facilidade de modularização.
+
 ## Como rodar o projeto
 
-### Dependencias
+### Dependencias recomendadas
 * `node ^7.5.0` e `npm ^4.1.2` - [nodejs.org](https://nodejs.org)
 * `yarn ^0.19.1` - [yarnpkg.com](https://yarnpkg.com)
 
@@ -48,6 +55,6 @@ Esse *starter kit* contém algumas tasks simples que agilizam no desenvolvimento
 
 ### Tarefas
 
-* `yarn start`: Sobe um servidor local de desenvolvimento com environment de dev e todos os debugs habilitados
-* `yarn build`: Gera o build de produção da app para hospedar em um servidor estático
-* `yarn test`: Roda os testes em modo iterativo
+* `yarn start` ou `npm start`: Sobe um servidor local de desenvolvimento com environment de dev e todos os debugs habilitados
+* `yarn build` ou `npm run build`: Gera o build de produção da app para hospedar em um servidor estático
+* `yarn test` ou `npm run test`: Roda os testes em modo iterativo

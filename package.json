@@ -7,12 +7,18 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "chokidar-cli": "^1.2.0",
+    "react-scripts": "1.0.7",
+    "stylint": "^1.5.9",
+    "stylus": "^0.54.5"
   },
   "scripts": {
+    "build-css": "npm run lint-css && stylus src/css/base.styl -o src/index.css",
+    "lint-css": "stylint src",
+    "watch-css": "npm run build-css && chokidar 'src/**/*.styl' -c 'npm run build-css'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "npm run lint-css && react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }
