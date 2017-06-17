@@ -1,0 +1,32 @@
+.button
+  border none
+  border-radius $unit_radius
+  color $color_white
+  cursor pointer
+  display inline-block
+  height $unit_button-height
+  line-height $unit_button-height
+  margin 0 $unit_spacing-1 $unit_spacing-1 0
+  padding 0 $unit_spacing-1
+  text-decoration none
+
+  &:last-child
+    margin 0
+
+  &--primary
+    background-color $color_orange-8
+
+    &:hover
+      background-color $color_orange-7
+
+    &:active
+      background-color $color_orange-6
+
+  &--secondary
+    background-color $color_green-8
+
+    &:hover
+      background-color $color_green-7
+
+    &:active
+      background-color $color_green-6
