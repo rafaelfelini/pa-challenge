@@ -4,17 +4,20 @@
   "private": true,
   "dependencies": {
     "npm-run-all": "^4.0.2",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
     "chokidar-cli": "^1.2.0",
+    "enzyme": "^2.8.2",
     "husky": "^0.13.4",
     "react-scripts": "1.0.7",
+    "react-test-renderer": "^15.6.1",
     "stylint": "^1.5.9",
-    "stylus": "^0.54.5",
-    "@kadira/storybook": "^2.21.0"
+    "stylus": "^0.54.5"
   },
   "scripts": {
     "build-css": "npm run lint-css && stylus src/css/base.styl -o src/index.css",
