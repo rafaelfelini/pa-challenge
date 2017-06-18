@@ -6,9 +6,14 @@ import Header from '../components/Header';
 import '../index.css';
 
 storiesOf('Header', module)
-  .add('Default', () => (
+  .add('Not  Authenticated', () => (
     <BrowserRouter>
       <Header />
+    </BrowserRouter>
+  ))
+  .add('Authenticated', () => (
+    <BrowserRouter>
+      <Header isAuthenticated />
     </BrowserRouter>
   ));
 
