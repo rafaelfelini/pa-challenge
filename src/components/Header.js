@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from './Button'
 import logo from '../img/logo.svg'
 
-const Header = ({ isUserLoggedIn }) => (
+const Header = ({ isAuthenticated }) => (
   <header className="header">
     <div className="header__container">
       <div className="header__logo">
@@ -11,7 +11,7 @@ const Header = ({ isUserLoggedIn }) => (
       </div>
 
         {
-          isUserLoggedIn
+          isAuthenticated
           ? (
             <div className="header__actions">
               <Button label="Minha conta" url="/account"/>
@@ -21,6 +21,7 @@ const Header = ({ isUserLoggedIn }) => (
           : (
             <div className="header__actions">
               <Button label="Entrar" url="/login"/>
+              <Button label="Cadastrar" url="/register"/>
             </div>
           )
         }
@@ -29,11 +30,11 @@ const Header = ({ isUserLoggedIn }) => (
 );
 
 Header.propTypes = {
-  isUserLoggedIn: PropTypes.bool
+  isAuthenticated: PropTypes.bool
 }
 
 Header.defaultProps = {
-  isUserLoggedIn: false
+  isAuthenticated: false
 }
 
 export default Header;
