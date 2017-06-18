@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^4.1.2",
+    "firebase-tools": "^3.9.1",
     "npm-run-all": "^4.0.2",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -32,6 +33,7 @@
     "eject": "react-scripts eject",
     "precommit": "npm run lint-css && npm run lint-js",
     "storybook": "npm run build && start-storybook -p 9009 -s public",
-    "build-storybook": "npm run build && build-storybook -s public"
+    "build-storybook": "npm run build && build-storybook -s public",
+    "deploy": "npm run build && firebase deploy"
   }
 }
