@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import { initializeApp as firebaseInitialize } from 'firebase';
 
 export default function () {
   const config = {
@@ -9,5 +9,5 @@ export default function () {
     messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID
   };
 
-  firebase.initializeApp(config);
+  firebaseInitialize(config);
 }

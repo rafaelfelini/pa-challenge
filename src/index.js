@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './routes';
 import registerServiceWorker from './utils/registerServiceWorker';
-import firebaseConnect from './utils/firebase-connect';
+import firebaseInitialize from './utils/firebase/initialize';
 
 import './index.css';
 
 // services
-firebaseConnect();
+firebaseInitialize();
 
 ReactDOM.render(
   <Routes />,
