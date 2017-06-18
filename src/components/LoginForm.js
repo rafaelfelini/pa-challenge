@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 import Field from './Field';
 
-const RegisterForm = ({ onValueChange, onSubmit, errorMsg }) => (
-  <div className="register-form">
-    <div className="register-form__controls">
+const LoginForm = ({ onValueChange, onSubmit, onResetPassword, errorMsg }) => (
+  <div className="login-form">
+    <div className="login-form__controls">
       <Button appearance="secondary" title="Voltar para listagem" label="Ver produtos" url="/" />
     </div>
 
-    <form className="form register-form__form" onSubmit={(e) => { onSubmit(e); }}>
+    <form className="form login-form__form" onSubmit={(e) => { onSubmit(e); }}>
       {
         errorMsg
         ? (
@@ -34,24 +34,25 @@ const RegisterForm = ({ onValueChange, onSubmit, errorMsg }) => (
         type="password"
         label="Senha"
         placeholder="******"
-        required
       />
 
-      <div className="form__fieldset form__fieldset--controls">
-        <Button type="submit" label="Cadastrar conta" />
+    <div className="form__fieldset form__fieldset--controls" onSubmit={onSubmit}>
+        <Button type="button" label="Resetar senha" appearance="secondary" onClick={onResetPassword} />
+        <Button type="submit" label="Entrar" />
       </div>
     </form>
   </div>
 );
 
-RegisterForm.propTypes = {
+LoginForm.propTypes = {
   errorMsg: PropTypes.string,
+  onResetPassword: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onValueChange: PropTypes.func.isRequired,
 };
 
-RegisterForm.defaultProps = {
+LoginForm.defaultProps = {
   errorMsg: ''
 };
 
-export default RegisterForm;
+export default LoginForm;

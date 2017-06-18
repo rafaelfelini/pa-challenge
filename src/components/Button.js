@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Button = ({appearance, label, url, title, onClick}) => {
+const Button = ({appearance, label, type, url, title, onClick}) => {
   const Element = url ? Link : 'button';
 
   const attrs = {
-    to: url,
-    title,
     onClick,
+    title,
+    to: url,
+    type,
   };
 
   return (
@@ -20,16 +21,18 @@ const Button = ({appearance, label, url, title, onClick}) => {
 
 Button.propTypes = {
   appearance: PropTypes.oneOf([ 'primary', 'secondary' ]),
-  url: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
+  type: PropTypes.oneOf([ 'button', 'submit' ]),
+  url: PropTypes.string,
 };
 
 Button.defaultProps = {
   appearance: 'primary',
-  url: undefined,
   label: '',
   onClick: undefined,
+  type: 'button',
+  url: undefined,
 };
 
 export default Button;

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { auth as firebaseAuth } from 'firebase'
 import App from './components/App';
 import RegisterFormContainer from './components/RegisterFormContainer';
+import LoginFormContainer from './components/LoginFormContainer';
 
 const PrivateRoute = ({component: Component, isAuthenticated, ...rest}) => (
   <Route
@@ -61,7 +62,7 @@ class Routes extends React.Component {
           <Switch>
             <Route path='/' exact component={() => <h3>Home</h3>} />
             <PublicRoute isAuthenticated={isAuthenticated} path="/register" component={RegisterFormContainer}/>
-            <PublicRoute isAuthenticated={isAuthenticated} path="/login" component={() => <h3>Login</h3>}/>
+            <PublicRoute isAuthenticated={isAuthenticated} path="/login" component={LoginFormContainer}/>
             <PrivateRoute isAuthenticated={isAuthenticated} path="/account" component={() => <h3>Account</h3>}/>
             <Route render={() => <h3>Not found</h3>} />
           </Switch>
