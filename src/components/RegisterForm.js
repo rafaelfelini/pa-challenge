@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 import Field from './Field';
+import HeaderControls from './HeaderControls';
 
 const RegisterForm = ({ onValueChange, onSubmit, errorMsg }) => (
   <div className="register-form">
-    <div className="register-form__controls">
+    <HeaderControls>
       <Button appearance="secondary" title="Voltar para listagem" label="Ver produtos" url="/" />
-    </div>
+    </HeaderControls>
 
     <form className="form register-form__form" onSubmit={(e) => { onSubmit(e); }}>
       {
