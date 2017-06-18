@@ -10,7 +10,6 @@ const Header = ({ isAuthenticated }) => (
       <div className="header__logo">
         <img src={logo} alt="WLX" width="35" />
       </div>
-
         {
           isAuthenticated
           ? (

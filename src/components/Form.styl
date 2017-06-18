@@ -1,0 +1,18 @@
+.form
+  width 100%
+
+.form__fieldset
+  margin-bottom $unit_spacing-1
+
+  +breakpoint(sm)
+    display flex
+
+  &--controls
+    justify-content flex-end
+
+.form__error
+  background-color $color_warning
+  border-radius $unit_radius
+  color $color_alert
+  margin-bottom $unit_spacing-2
+  padding $unit_spacing-2
