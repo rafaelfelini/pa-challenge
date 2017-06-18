@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import logo from '../img/logo.svg'
 import { logout } from '../utils/firebase/auth'
 import Button from './Button'
@@ -7,9 +8,9 @@ import Button from './Button'
 const Header = ({ isAuthenticated }) => (
   <header className="header">
     <div className="header__container">
-      <div className="header__logo">
+      <Link to="/" title="Ir para home" className="header__logo">
         <img src={logo} alt="WLX" width="35" />
-      </div>
+      </Link>
         {
           isAuthenticated
           ? (
