@@ -1,0 +1,19 @@
+machine:
+  timezone:
+    America/Sao_Paulo
+  node:
+    version: 7.5.0
+
+dependencies:
+  override:
+    - npm install
+
+test:
+  override:
+    - npm run test
+
+deployment:
+  prod:
+    branch: master
+    commands:
+      - npm run deploy
