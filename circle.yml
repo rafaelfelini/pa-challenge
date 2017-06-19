@@ -16,4 +16,5 @@ deployment:
   prod:
     branch: master
     commands:
-      - npm run deploy
+      - npm run build
+      - firebase deploy --token=$FIREBASE_TOKEN --non-interactive
