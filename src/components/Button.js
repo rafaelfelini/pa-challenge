@@ -31,7 +31,7 @@ Button.defaultProps = {
   appearance: 'primary',
   label: '',
   onClick: undefined,
-  type: 'button',
+  type: undefined,
   url: undefined,
 };
 
