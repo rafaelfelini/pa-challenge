@@ -61,6 +61,8 @@ Utilizei o *CircleCI* para integração continua (testes e deployment). Optei po
 
 ## Como rodar o projeto
 
+O projeto esta hospedado no Firebase Hosting e pode ser acessado [clicando aqui](https://pa-challenge.firebaseapp.com/login). Porém, para rodar localmente basta seguir os passos abaixo
+
 ### Dependencias recomendadas
 * `node ^8.1.2` e `npm ^5.0.3` - [nodejs.org](https://nodejs.org)
 * `yarn ^0.19.1` - [yarnpkg.com](https://yarnpkg.com)
