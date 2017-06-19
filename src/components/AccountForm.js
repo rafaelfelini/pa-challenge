@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 import Field from './Field';
 import { Form, FormControls } from './Form';
-import HeaderControls from './HeaderControls';
+import { HeaderControls, HeaderControlsSection } from './HeaderControls';
 
 const AccountForm = ({
   email,
@@ -18,7 +18,9 @@ const AccountForm = ({
 }) => (
   <div className="register-form">
     <HeaderControls>
-      <Button appearance="secondary" title="Voltar para listagem" label="Ver produtos" url="/" />
+      <HeaderControlsSection>
+        <Button appearance="secondary" title="Voltar para listagem" label="Ver produtos" url="/" />
+      </HeaderControlsSection>
     </HeaderControls>
 
     <div className="register-form__form">

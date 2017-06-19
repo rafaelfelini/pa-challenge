@@ -1,6 +1,21 @@
 .header-controls
-  align-items center
+  align-items stretch
   container()
   display flex
+  flex-direction column
   justify-content space-between
   margin-bottom $unit_spacing-3
+
+
+  +breakpoint(sm)
+    align-items center
+    flex-direction row
+
+.header-controls__section
+  margin-bottom $unit_spacing-2
+
+  &:last-child
+    margin-bottom 0
+
+  +breakpoint(sm)
+    margin-bottom 0

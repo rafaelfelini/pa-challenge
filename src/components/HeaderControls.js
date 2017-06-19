@@ -6,4 +6,13 @@ const HeaderControls = ({ children }) => (
   </div>
 );
 
-export default HeaderControls;
+const HeaderControlsSection = ({ children }) => (
+  <div className="header-controls__section">
+    {children}
+  </div>
+);
+
+export {
+  HeaderControls,
+  HeaderControlsSection,
+};
