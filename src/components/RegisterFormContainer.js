@@ -11,15 +11,34 @@ function setErrorMsg(error) {
 class RegisterFormContainer extends React.Component {
   state = {
     email: '',
+    errorMsg: '',
+    name: '',
     password: '',
-    errorMsg: ''
+    phoneNumber: '',
+    isSubmiting: false,
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    auth(this.state.email, this.state.password)
+
+    this.setState({ isSubmiting: true })
+
+    const {
+      email,
+      name,
+      password,
+      phoneNumber,
+    } = this.state;
+
+    auth({
+      email,
+      name,
+      password,
+      phoneNumber,
+    })
       .catch((error) => {
         this.setState(setErrorMsg(error))
+        this.setState({ isSubmiting: false })
       })
   }
 
@@ -31,9 +50,15 @@ class RegisterFormContainer extends React.Component {
   }
 
   render () {
+    const {
+      errorMsg,
+      isSubmiting,
+    } = this.state;
+
     return (
       <RegisterForm
-        errorMsg={this.state.errorMsg}
+        errorMsg={errorMsg}
+        isSubmiting={isSubmiting}
         onValueChange={this.valueChange.bind(this)}
         onSubmit={this.handleSubmit.bind(this)}
       />

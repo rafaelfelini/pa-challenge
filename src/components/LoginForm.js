@@ -4,7 +4,7 @@ import Button from './Button';
 import Field from './Field';
 import HeaderControls from './HeaderControls';
 
-const LoginForm = ({ onValueChange, onSubmit, onResetPassword, errorMsg }) => (
+const LoginForm = ({ onValueChange, onSubmit, onResetPassword, errorMsg, isSubmiting }) => (
   <div className="login-form">
     <HeaderControls>
       <Button appearance="secondary" title="Voltar para listagem" label="Ver produtos" url="/" />
@@ -27,6 +27,7 @@ const LoginForm = ({ onValueChange, onSubmit, onResetPassword, errorMsg }) => (
         type="email"
         label="E-mail"
         placeholder="nome@provedor.com"
+        disabled={isSubmiting}
         required
       />
       <Field
@@ -35,11 +36,23 @@ const LoginForm = ({ onValueChange, onSubmit, onResetPassword, errorMsg }) => (
         type="password"
         label="Senha"
         placeholder="******"
+        disabled={isSubmiting}
       />
 
     <div className="form__fieldset form__fieldset--controls" onSubmit={onSubmit}>
-        <Button type="button" label="Resetar senha" appearance="secondary" onClick={onResetPassword} />
-        <Button type="submit" label="Entrar" />
+        <Button
+          type="button"
+          label="Resetar
+          senha"
+          appearance="secondary"
+          onClick={onResetPassword}
+          disabled={isSubmiting}
+        />
+        <Button
+          type="submit"
+          label="Entrar"
+          disabled={isSubmiting}
+        />
       </div>
     </form>
   </div>
@@ -47,13 +60,15 @@ const LoginForm = ({ onValueChange, onSubmit, onResetPassword, errorMsg }) => (
 
 LoginForm.propTypes = {
   errorMsg: PropTypes.string,
+  isSubmiting: PropTypes.bool,
   onResetPassword: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onValueChange: PropTypes.func.isRequired,
 };
 
 LoginForm.defaultProps = {
-  errorMsg: ''
+  errorMsg: '',
+  isSubmiting: false,
 };
 
 export default LoginForm;

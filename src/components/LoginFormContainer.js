@@ -6,15 +6,22 @@ class LoginFormContainer extends React.Component {
   state = {
     email: '',
     password: '',
-    errorMsg: ''
+    errorMsg: '',
+    isSubmiting: false,
   }
 
   handleSubmit(e) {
     e.preventDefault()
+
+    this.setState({
+      isSubmiting: true,
+    })
+
     login(this.state.email, this.state.password)
       .catch((error) => {
           this.setState({
-            errorMsg: 'Invalid username/password.'
+            errorMsg: 'Invalid username/password.',
+            isSubmiting: false,
         })
       })
   }
@@ -41,9 +48,12 @@ class LoginFormContainer extends React.Component {
   }
 
   render () {
+    const { errorMsg, isSubmiting } = this.state;
+
     return (
       <LoginForm
-        errorMsg={this.state.errorMsg}
+        errorMsg={errorMsg}
+        isSubmiting={isSubmiting}
         onValueChange={this.valueChange.bind(this)}
         onSubmit={this.handleSubmit.bind(this)}
         onResetPassword={this.resetPassword.bind(this)}
