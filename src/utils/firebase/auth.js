@@ -1,7 +1,8 @@
 import { auth as firebaseAuth, database as firebaseDatabase } from 'firebase'
 
 export function auth ({email, password, phoneNumber, name}) {
-  return firebaseAuth().createUserWithEmailAndPassword(email, password)
+  return firebaseAuth()
+    .createUserWithEmailAndPassword(email, password)
     .then((user) => {
       saveUser({
         email: user.email,
@@ -25,7 +26,9 @@ export function resetPassword (email) {
 }
 
 export function saveUser (userInfo) {
-  return firebaseDatabase().ref().child(`users/${userInfo.uid}/info`)
+  return firebaseDatabase()
+    .ref()
+    .child(`users/${userInfo.uid}/info`)
     .set(userInfo)
     .then(() => userInfo)
 }

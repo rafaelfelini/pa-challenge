@@ -2,12 +2,6 @@ import React from 'react'
 import { auth } from '../utils/firebase/auth'
 import RegisterForm from './RegisterForm'
 
-function setErrorMsg(error) {
-  return {
-    errorMsg: error.message
-  }
-}
-
 class RegisterFormContainer extends React.Component {
   state = {
     email: '',
@@ -37,8 +31,10 @@ class RegisterFormContainer extends React.Component {
       phoneNumber,
     })
       .catch((error) => {
-        this.setState(setErrorMsg(error))
-        this.setState({ isSubmiting: false })
+        this.setState({
+          isSubmiting: false,
+          errorMsg: error.message
+        })
       })
   }
 
