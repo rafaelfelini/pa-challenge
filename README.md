@@ -62,7 +62,7 @@ Utilizei o *CircleCI* para integração continua (testes e deployment). Optei po
 ## Como rodar o projeto
 
 ### Dependencias recomendadas
-* `node ^8.1.2` e `npm ^5.0.3` - [nodejs.org](https://nodejs.org)
+* `node ^6.11.0` e `npm ^3.10.10` - [nodejs.org](https://nodejs.org)
 * `yarn ^0.19.1` - [yarnpkg.com](https://yarnpkg.com)
 
 ### Instalando localmente
