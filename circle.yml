@@ -16,6 +16,6 @@ deployment:
   prod:
     branch: master
     commands:
-      - npm install --save-dev webpack@2.6.0 --prune
+      - npm install --save-dev webpack@2.6.0 --prune # necessary to prevent build errors related with webpack version 2.6.1
       - npm run build
-      - firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+      - npm run deploy
