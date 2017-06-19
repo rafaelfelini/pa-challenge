@@ -16,5 +16,6 @@ deployment:
   prod:
     branch: master
     commands:
+      - npm install --save-dev webpack@2.6.0 --prune
       - npm run build
       - firebase deploy --token=$FIREBASE_TOKEN --non-interactive
