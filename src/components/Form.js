@@ -14,6 +14,7 @@ const Form = ({
       ? 'Carregando'
       : (
         <form className="form__form" onSubmit={(e) => { onSubmit(e); }}>
+          {children}
           {
             errorMsg
             ? (
@@ -32,8 +33,6 @@ const Form = ({
             )
             : ''
           }
-
-          {children}
         </form>
       )
     }

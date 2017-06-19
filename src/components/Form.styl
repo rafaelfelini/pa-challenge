@@ -10,9 +10,16 @@
   &--controls
     justify-content flex-end
 
+.form__success
 .form__error
-  background-color $color_warning
   border-radius $unit_radius
-  color $color_alert
   margin-bottom $unit_spacing-2
   padding $unit_spacing-2
+
+.form__success
+  background-color lighten($color_success, 40)
+  color $color_success
+
+.form__error
+  background-color lighten($color_alert, 40)
+  color $color_alert
