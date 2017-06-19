@@ -21,4 +21,5 @@ it('should return a `Link` with `to` property', () => {
   const button = shallow(<Button label="Foo bar" url='foo/bar'/>, div);
 
   expect(button.prop('to')).toEqual('foo/bar');
+  expect(button.prop('type')).toEqual(undefined);
 });
