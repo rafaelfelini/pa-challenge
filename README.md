@@ -54,10 +54,15 @@ Dentro do storybook é possível listar todos os componentes em uma interface se
 
 Levando em consideração o objetivo do projeto e as especificações eu decidi utilizar o *Firebase* ao invés de mockar os dados em variaveis, localStorage ou IndexedDB. Vale ressaltar que o firebase também é utilziado para deploy e autenticação da app.
 
+### [CircleCI](https://circleci.com/)
+> Ferramenta para integração continua
+
+Utilizei o *CircleCI* para integração continua (testes e deployment). Optei por ela principalmente pela simplicidade de integração com o github.
+
 ## Como rodar o projeto
 
 ### Dependencias recomendadas
-* `node ^7.5.0` e `npm ^4.1.2` - [nodejs.org](https://nodejs.org)
+* `node ^8.1.2` e `npm ^5.0.3` - [nodejs.org](https://nodejs.org)
 * `yarn ^0.19.1` - [yarnpkg.com](https://yarnpkg.com)
 
 ### Instalando localmente
