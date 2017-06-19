@@ -1,6 +1,6 @@
 import { auth as firebaseAuth, database as firebaseDatabase } from 'firebase'
 
-export function userInfoGet () {
+export function userGet () {
   const user = firebaseAuth().currentUser;
 
   return firebaseDatabase()
@@ -12,7 +12,7 @@ export function userInfoGet () {
     })
 }
 
-export function userInfoUpdate (userInfo) {
+export function userUpdate (userInfo) {
   return firebaseDatabase()
     .ref()
     .child(`users/${userInfo.uid}/info`)

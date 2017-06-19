@@ -1,5 +1,5 @@
 import React from 'react'
-import { userInfoGet, userInfoUpdate } from '../utils/firebase/user-info'
+import { userGet, userUpdate } from '../utils/firebase/user'
 import AccountForm from './AccountForm'
 
 class AccountFormContainer extends React.Component {
@@ -18,7 +18,7 @@ class AccountFormContainer extends React.Component {
   }
 
   getUserInfo() {
-    userInfoGet().then((userInfo) => {
+    userGet().then((userInfo) => {
       this.setState({
         uid: userInfo.uid,
         email: userInfo.email,
@@ -42,7 +42,7 @@ class AccountFormContainer extends React.Component {
       isSubmiting: true
     })
 
-    userInfoUpdate({
+    userUpdate({
       uid,
       email,
       name,
