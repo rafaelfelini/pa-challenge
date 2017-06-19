@@ -2,7 +2,7 @@ import React from 'react'
 import { userInfoGet, userInfoUpdate } from '../utils/firebase/user-info'
 import AccountForm from './AccountForm'
 
-class AccountContainer extends React.Component {
+class AccountFormContainer extends React.Component {
   state = {
     uid: null,
     email: '',
@@ -96,4 +96,4 @@ class AccountContainer extends React.Component {
   }
 }
 
-export default AccountContainer;
+export default AccountFormContainer;

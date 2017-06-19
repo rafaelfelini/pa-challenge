@@ -11,22 +11,34 @@ const Field = ({
   readOnly,
   required,
   type,
-}) => (
-  <div className="field">
-    {label ? (<label className="field__label">{label}</label>) : ''}
-    <input
-      className="field__input"
-      defaultValue={defaultValue}
-      disabled={disabled}
-      name={name}
-      onInput={onInput}
-      placeholder={placeholder}
-      readOnly={readOnly}
-      required={required}
-      type={type}
-    />
-  </div>
-);
+}) => {
+
+  let FieldTag = 'input'
+  const fieldProps = {
+    className: `field__input field__input--${type}`,
+    defaultValue,
+    disabled,
+    name,
+    onInput,
+    placeholder,
+    readOnly,
+    required,
+  }
+
+  if (type === 'textarea') {
+    FieldTag = 'textarea'
+    fieldProps.rows = 3
+  } else {
+    fieldProps.type = type
+  }
+
+  return (
+    <div className="field">
+      {label ? (<label className="field__label">{label}</label>) : ''}
+      <FieldTag {...fieldProps} />
+    </div>
+  );
+}
 
 Field.propTypes = {
   defaultValue: PropTypes.string,
@@ -36,7 +48,7 @@ Field.propTypes = {
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
-  type: PropTypes.oneOf([ 'text', 'search', 'number', 'email', 'password' ]),
+  type: PropTypes.oneOf([ 'text', 'textarea', 'search', 'number', 'email', 'password' ]),
 };
 
 Field.defaultProps = {
