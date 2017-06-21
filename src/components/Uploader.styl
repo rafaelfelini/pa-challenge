@@ -5,8 +5,8 @@
 
 .uploader__item
   height $unit_uploader-height
-  padding-right $unit_spacing-1
   margin-bottom $unit_spacing-1
+  padding-right $unit_spacing-1
   width 33.33333%
 
   &:nth-child(3n+3)
@@ -52,6 +52,7 @@
   justify-content center
   overflow hidden
   width 100%
+  position relative
 
 .uploader__file__img
   max-height 100%
@@ -80,3 +81,22 @@
 
 .uploader__input
   display none
+
+.uploader__file__remove
+  align-items center
+  background-color $color_alert-opacity
+  color $color_white
+  cursor pointer
+  display flex
+  height 100%
+  justify-content center
+  left 0
+  opacity 0
+  position absolute
+  top 0
+  transition opacity $unit_transition
+  width 100%
+  will-change opacity
+
+  &:hover
+    opacity 1

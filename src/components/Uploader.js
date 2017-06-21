@@ -10,6 +10,7 @@ const Uploader = ({
   multiple,
   name,
   onChange,
+  onRemove,
 }) => {
 
   const fieldProps = {
@@ -46,7 +47,18 @@ const Uploader = ({
                   : (<a className="uploader__file__name" href={file.url} target="_blank" rel="noopener noreferrer">{file.name}</a>)
                 : ''
               }
+
+              {
+                file.url && onRemove
+                ? (
+                  <span className="uploader__file__remove" onClick={() => onRemove(file)}>
+                    Remover
+                  </span>
+                )
+                : ''
+              }
             </div>
+
             <div className="uploader__file__progress">
               <div className="uploader__file__progress__current" style={{ width: `${file.progress}%`}} />
             </div>
@@ -71,6 +83,7 @@ Uploader.propTypes = {
   multiple: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  onRemove: PropTypes.func,
 };
 
 Uploader.defaultProps = {
@@ -80,6 +93,7 @@ Uploader.defaultProps = {
   label: 'Arquivos',
   multiple: false,
   onChange: undefined,
+  onRemove: undefined,
 };
 
 export default Uploader;

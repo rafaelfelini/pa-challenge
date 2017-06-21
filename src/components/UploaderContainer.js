@@ -30,6 +30,25 @@ class UploaderContainer extends React.Component {
     this.setState({ files });
   }
 
+  removeFile(file) {
+    const { files, filesUrls } = this.state;
+    const fileIndex = files.findIndex((item) => item.id === file.id);
+    const fileUrlIndex = filesUrls.findIndex((item) => item === file.url);
+
+    if (fileIndex !== -1) {
+      files.splice(fileIndex, 1)
+    }
+
+    if (fileUrlIndex !== -1) {
+      filesUrls.splice(fileUrlIndex, 1)
+    }
+
+    this.setState({
+      files,
+      filesUrls,
+    });
+  }
+
   setFileError(file, error) {
     const { files } = this.state;
     const fileIndex = files.findIndex((item) => item.id === file.id);
@@ -125,6 +144,7 @@ class UploaderContainer extends React.Component {
         multiple={multiple}
         name={name}
         onChange={this.valueChange.bind(this)}
+        onRemove={this.removeFile.bind(this)}
       />
     );
   }
