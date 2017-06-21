@@ -3,23 +3,36 @@
   display flex
   flex-wrap wrap
 
-.uploader__button
-.uploader__file
+.uploader__item
   height $unit_uploader-height
-  width $unit_uploader-height
-  margin-right $unit_spacing-1
+  padding-right $unit_spacing-1
   margin-bottom $unit_spacing-1
+  width 33.33333%
+
+  &:nth-child(3n+3)
+    padding-right 0
+
+  +breakpoint(sm)
+    width 25%
+
+    &:nth-child(3n+3)
+      padding-right $unit_spacing-1
+
+    &:nth-child(4n+4)
+      padding-right 0
 
 .uploader__button
-  display flex
   align-items center
   background-color $color_green-6
   color $color_white
   cursor pointer
-  justify-content center
+  display flex
   flex-direction column
+  height 100%
+  justify-content center
   text-align center
   transition background-color $unit_transition
+  width 100%
 
   &:hover
     background-color: $color_green-9
@@ -29,14 +42,19 @@
   flex-direction column
 
 .uploader__file__preview
-  overflow hidden
+  align-items center
+  background-color $color_grey-1
+  background-repeat no-repeat
+  background-size 80%
+  background-position center
+  display flex
   height 100%
+  justify-content center
+  overflow hidden
   width 100%
 
 .uploader__file__img
   max-height 100%
-  margin-left 50%
-  transform translateX(-50%)
 
 .uploader__file__progress
   display block
@@ -49,6 +67,7 @@
   background $color_green-8
   display block
   height $unit_spacing-0
+  transition width $unit_transition
 
 .uploader__more
 .uploader__label

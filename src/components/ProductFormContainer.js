@@ -19,6 +19,7 @@ class ProductFormContainer extends React.Component {
     this.setState({ isSubmiting: true })
 
     const {
+      images,
       title,
       price,
       description,
@@ -26,6 +27,7 @@ class ProductFormContainer extends React.Component {
 
 
     productCreate({
+      images,
       title,
       price,
       description,
