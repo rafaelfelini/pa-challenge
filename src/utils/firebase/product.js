@@ -1,10 +1,11 @@
-import { auth as firebaseAuth, database as firebaseDatabase } from 'firebase'
+import { auth as firebaseAuth, database as firebaseDatabase } from 'firebase';
 
-export function productCreate (productData) {
+export function create (productData) {
   const user = firebaseAuth().currentUser;
   const key = firebaseDatabase().ref().child('products').push().key;
 
-  productData.user = user.uid
+  productData.user = user.uid;
+  productData.createdAt = firebaseDatabase.ServerValue.TIMESTAMP;
 
   return firebaseDatabase()
     .ref()
@@ -13,5 +14,5 @@ export function productCreate (productData) {
     .then(() => ({
       key,
       ...productData
-    }))
-}
+    }));
+};

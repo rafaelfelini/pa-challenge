@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { productCreate } from '../utils/firebase/product'
+import { create as productCreate } from '../utils/firebase/product'
 import ProductForm from './ProductForm'
 
 class ProductFormContainer extends React.Component {
