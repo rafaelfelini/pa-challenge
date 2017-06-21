@@ -10,6 +10,7 @@ class ProductFormContainer extends React.Component {
     price: '',
     productKey: '',
     title: '',
+    images: [],
   }
 
   handleSubmit(e) {

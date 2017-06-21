@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 import Field from './Field';
+import UploaderContainer from './UploaderContainer';
 import { Form, FormControls } from './Form';
 import { HeaderControls, HeaderControlsSection } from './HeaderControls';
 
@@ -44,6 +45,15 @@ const ProductForm = ({ onValueChange, onSubmit, errorMsg, isSubmiting }) => (
           placeholder="Escreva a descrição do seu anúncio"
           disabled={isSubmiting}
         />
+
+        <UploaderContainer
+          onChange={onValueChange}
+          name="images"
+          label="Imagens do anúncio"
+          accept="image/jpg, image/gif, image/png"
+          multiple
+        />
+
         <FormControls>
           <Button
             type="submit"

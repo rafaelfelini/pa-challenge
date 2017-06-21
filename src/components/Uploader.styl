@@ -1,0 +1,63 @@
+.uploader
+  width 100%
+  display flex
+  flex-wrap wrap
+
+.uploader__button
+.uploader__file
+  height $unit_uploader-height
+  width $unit_uploader-height
+  margin-right $unit_spacing-1
+  margin-bottom $unit_spacing-1
+
+.uploader__button
+  display flex
+  align-items center
+  background-color $color_green-6
+  color $color_white
+  cursor pointer
+  justify-content center
+  flex-direction column
+  text-align center
+  transition background-color $unit_transition
+
+  &:hover
+    background-color: $color_green-9
+
+.uploader__file
+  display flex
+  flex-direction column
+
+.uploader__file__preview
+  overflow hidden
+  height 100%
+  width 100%
+
+.uploader__file__img
+  max-height 100%
+  margin-left 50%
+  transform translateX(-50%)
+
+.uploader__file__progress
+  display block
+  margin-top $unit_spacing-0
+  height $unit_spacing-0
+  width 100%
+  background lighten($color_green-8, 30)
+
+.uploader__file__progress__current
+  background $color_green-8
+  display block
+  height $unit_spacing-0
+
+.uploader__more
+.uploader__label
+  display block
+  text-align center
+  width 100%
+
+.uploader__more
+  font-size 3rem
+
+.uploader__input
+  display none
