@@ -7,10 +7,11 @@ import Button from './Button'
 
 const Header = ({ isAuthenticated }) => (
   <header className="header">
-    <div className="header__container">
-      <Link to="/" title="Ir para home" className="header__logo">
-        <img src={logo} alt="WLX" width="35" />
-      </Link>
+    <div className="header__content">
+      <div className="header__container">
+        <Link to="/" title="Ir para home" className="header__logo">
+          <img src={logo} alt="WLX" width="35" />
+        </Link>
         {
           isAuthenticated
           ? (
@@ -26,6 +27,7 @@ const Header = ({ isAuthenticated }) => (
             </div>
           )
         }
+      </div>
     </div>
   </header>
 );
