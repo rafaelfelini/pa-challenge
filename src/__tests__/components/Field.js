@@ -11,7 +11,7 @@ it('should render a input with onInput event', () => {
   const div = document.createElement('div');
   const field = shallow(<Field name="myField" placeholder="Foo bar" onInput={onInput}/>, div);
 
-  field.find('input').simulate('input', { which: 'Foo value' });
+  field.find('input').simulate('input', { target: { value: 'Foo value' }, persist: () => null });
 
   expect(onInput).toBeCalled();
 });

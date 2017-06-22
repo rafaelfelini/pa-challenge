@@ -27,9 +27,9 @@ class ProductFormContainer extends React.Component {
 
 
     productCreate({
+      price: parseInt(price.replace(/[^0-9]/g, ''), 10),
       images,
       title,
-      price,
       description,
     })
     .then((response) => {
@@ -47,7 +47,6 @@ class ProductFormContainer extends React.Component {
   valueChange(e) {
     const state = this.state;
     state[e.target.name] = e.target.value;
-
     this.setState(state);
   }
 

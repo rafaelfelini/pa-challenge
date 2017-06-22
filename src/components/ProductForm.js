@@ -31,9 +31,10 @@ const ProductForm = ({ onValueChange, onSubmit, errorMsg, isSubmiting }) => (
         <Field
           onInput={onValueChange}
           name="price"
-          type="number"
+          type="text"
+          mask="currency"
           label="Valor"
-          placeholder="100"
+          placeholder="R$ 100,00"
           disabled={isSubmiting}
           required
         />
