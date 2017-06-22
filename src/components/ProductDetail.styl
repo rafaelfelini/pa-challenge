@@ -3,18 +3,23 @@
   display flex
   flex-wrap wrap
 
-.product-detail__gallery
 .product-detail__content
+.product-detail__gallery
   flex 0 0 100%
   margin 0 0 $unit_spacing-1
   max-width 100%
 
+.product-detail__gallery
   +breakpoint(md)
-    flex 1
+    flex 3
 
 .product-detail__content
   +breakpoint(md)
-    padding 0 $unit_spacing-1
+    flex 2
+
+.product-detail__content
+  +breakpoint(md)
+    padding 0 $unit_spacing-2
 
 .product-detail__heading
   color $color_orange-6

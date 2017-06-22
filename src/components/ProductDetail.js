@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
+import ProductGallery from './ProductGallery';
 import { HeaderControls, HeaderControlsSection } from './HeaderControls';
 import logoGrey from '../img/logo-grey.svg';
 import formatCurrency from '../utils/format-currency';
@@ -24,11 +25,7 @@ const ProductDetail = ({
         className="product-detail__gallery"
         style={!images ? {backgroundImage: `url(${logoGrey})`} : null}
       >
-        {
-          images
-          ? (<img className="product-detail__img" src={images[0]} alt={title} />)
-          : ''
-        }
+        <ProductGallery images={images} />
       </div>
 
       <div className="product-detail__content">

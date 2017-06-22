@@ -1,0 +1,58 @@
+.product-gallery
+  width 100%
+  max-width $unit_container-width
+
+.product-gallery__main
+.product-gallery__nav
+  display block
+  width 100%
+
+.product-gallery__main
+  align-items center
+  background-color $color_grey-1
+  background-position center
+  background-repeat no-repeat
+  background-size 80%
+  cursor pointer
+  display flex
+  height 100vw
+  justify-content center
+  max-height $unit_product-gallery-main-height
+  overflow hidden
+  width 100%
+  will-change opacity
+
+.product-gallery__main__img
+  max-height 100%
+  max-width 100%
+
+.product-gallery__nav
+  display flex
+  margin-top $unit_spacing-0
+  overflow-x auto
+
+  +breakpoint(sm)
+    margin-top $unit_spacing-1
+
+.product-gallery__nav__item
+  align-items center
+  cursor pointer
+  display flex
+  height $unit_product-gallery-item-height
+  justify-content center
+  margin-right $unit_spacing-0
+  min-width $unit_product-gallery-item-height
+  opacity .8
+  overflow hidden
+  transition opacity $unit_transition
+  width $unit_product-gallery-item-height
+  will-change opacity
+
+  +breakpoint(sm)
+    margin-right $unit_spacing-1
+
+  &:hover
+    opacity 1
+
+.product-gallery__nav__img
+  max-height 100%
