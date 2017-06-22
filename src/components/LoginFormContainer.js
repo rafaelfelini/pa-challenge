@@ -1,5 +1,5 @@
 import React from 'react'
-import { login, resetPassword } from '../utils/firebase/auth'
+import { login, resetPassword } from '../utils/data/auth'
 import LoginForm from './LoginForm'
 
 class LoginFormContainer extends React.Component {

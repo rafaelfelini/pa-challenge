@@ -11,13 +11,10 @@ export function upload (settings) {
 
   const completeRef = `${ref}/${file.name}`;
 
-  // Storage ref
   const storageRef = firebaseStorage().ref(completeRef);
 
-  // Upload file
   const task = storageRef.put(file);
 
-  // Upload Progress
   task.on('state_changed', (snapshot) => {
     const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
 

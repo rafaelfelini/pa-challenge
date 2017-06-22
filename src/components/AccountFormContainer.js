@@ -1,5 +1,5 @@
 import React from 'react'
-import { userGet, userUpdate } from '../utils/firebase/user'
+import { userGet, userUpdate } from '../utils/data/user'
 import AccountForm from './AccountForm'
 
 class AccountFormContainer extends React.Component {

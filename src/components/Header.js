@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import logo from '../img/logo.svg'
-import { logout } from '../utils/firebase/auth'
+import { logout } from '../utils/data/auth'
 import Button from './Button'
 
 const Header = ({ isAuthenticated }) => (

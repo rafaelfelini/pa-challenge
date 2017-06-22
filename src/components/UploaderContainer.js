@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { upload as fileUpload } from '../utils/firebase/file';
+import { upload as fileUpload } from '../utils/data/file';
 import Uploader from './Uploader';
 
 class UploaderContainer extends React.Component {

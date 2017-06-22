@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 import Loading from './Loading'
 import ProductDetail from './ProductDetail'
-import { get as productGet } from '../utils/firebase/product';
+import { get as productGet } from '../utils/data/product';
 
 class ProductDetailContainer extends React.Component {
   state = {

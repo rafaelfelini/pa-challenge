@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductsList from './ProductsList'
-import { getAll as productGetAll } from '../utils/firebase/product';
+import { getAll as productGetAll } from '../utils/data/product';
 
 class ProductsListContainer extends React.Component {
   state = {
