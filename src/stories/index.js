@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import HeaderControls from '../components/HeaderControls';
 import Field from '../components/Field';
 import Header from '../components/Header';
+import ProductItem from '../components/ProductItem';
 import '../index.css';
 
 storiesOf('Header', module)
@@ -64,4 +65,14 @@ storiesOf('Button', module)
 storiesOf('Field', module)
   .add('Default', () => (
     <Field name="myField" onInput={action('Field changed')} label="My Field" placeholder="Field Component"/>
+  ))
+  .add('With currency mask', () => (
+    <Field mask="currency" name="myField" onInput={action('Field changed')} label="My Currency Field" placeholder="R$ 100,00"/>
+  ));
+
+storiesOf('Product Item', module)
+  .add('Default', () => (
+    <BrowserRouter>
+      <ProductItem title="Foo Bar Item" id="12jbibi12j" description="Foo bar description" price="9990"/>
+    </BrowserRouter>
   ));
