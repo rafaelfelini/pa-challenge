@@ -44,15 +44,24 @@
   margin 0
 
 .product-item__heading
-  font-size 1rem
   color $color_orange-5
+  font-size 0.875rem
   margin-bottom $unit_spacing-0
+
+  +breakpoint(sm)
+    font-size 1rem
 
 .product-item__description
-  font-size 1rem
   color $color_grey-8
+  font-size 0.875rem
   margin-bottom $unit_spacing-0
 
+  +breakpoint(sm)
+    font-size 1rem
+
 .product-item__price
-  font-size 1.175rem
   color $color_green-7
+  font-size .875rem
+
+  +breakpoint(sm)
+    font-size 1.175rem

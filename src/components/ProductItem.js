@@ -29,7 +29,7 @@ const ProductItem = ({
       </h4>
       {
         description
-        ? (<p className="product-item__description">{description.substring(0, 55)}...</p>)
+        ? (<p className="product-item__description">{description.substring(0, 48)}...</p>)
         : ''
       }
       <h5 className="product-item__price">
