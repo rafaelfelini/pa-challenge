@@ -2,11 +2,12 @@ import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { auth as firebaseAuth } from 'firebase'
 import App from './components/App';
-import ProductsListContainer from './components/ProductsListContainer';
-import ProductFormContainer from './components/ProductFormContainer';
 import AccountFormContainer from './components/AccountFormContainer';
-import RegisterFormContainer from './components/RegisterFormContainer';
 import LoginFormContainer from './components/LoginFormContainer';
+import ProductFormContainer from './components/ProductFormContainer';
+import ProductDetailContainer from './components/ProductDetailContainer';
+import ProductsListContainer from './components/ProductsListContainer';
+import RegisterFormContainer from './components/RegisterFormContainer';
 
 const PrivateRoute = ({component: Component, isAuthenticated, ...rest}) => (
   <Route
@@ -63,11 +64,14 @@ class Routes extends React.Component {
       <BrowserRouter>
         <App isAuthenticated={isAuthenticated}>
           <Switch>
+
             <Route path='/' exact component={ProductsListContainer} />
-            <PublicRoute isAuthenticated={isAuthenticated} path="/register" component={RegisterFormContainer}/>
-            <PublicRoute isAuthenticated={isAuthenticated} path="/login" component={LoginFormContainer}/>
-            <PrivateRoute isAuthenticated={isAuthenticated} path="/account" component={AccountFormContainer}/>
-            <PrivateRoute isAuthenticated={isAuthenticated} path="/product/create" component={ProductFormContainer}/>
+            <PrivateRoute path="/product/create" component={ProductFormContainer} isAuthenticated={isAuthenticated} />
+            <Route path="/product/:id" component={ProductDetailContainer}/>
+
+            <PublicRoute path="/register" component={RegisterFormContainer} isAuthenticated={isAuthenticated} />
+            <PublicRoute path="/login" component={LoginFormContainer} isAuthenticated={isAuthenticated} />
+            <PrivateRoute path="/account" component={AccountFormContainer} isAuthenticated={isAuthenticated} />
             <Route render={() => <h3>Not found</h3>} />
           </Switch>
         </App>

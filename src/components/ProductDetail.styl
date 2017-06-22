@@ -1,0 +1,36 @@
+.product-detail__container
+  container()
+  display flex
+  flex-wrap wrap
+
+.product-detail__gallery
+.product-detail__content
+  flex 0 0 100%
+  margin 0 0 $unit_spacing-1
+  max-width 100%
+
+  +breakpoint(md)
+    flex 1
+
+.product-detail__content
+  +breakpoint(md)
+    padding 0 $unit_spacing-1
+
+.product-detail__heading
+  color $color_orange-6
+  font-size 1.25rem
+  margin $unit_spacing-1 0
+
+  +breakpoint(md)
+    margin 0 0 $unit_spacing-1
+
+.product-detail__description
+  color $color_grey-7
+  font-size 1rem
+  margin $unit_spacing-1 0
+  white-space pre-wrap
+
+.product-detail__price
+  color $color_green-7
+  font-size 1.175rem
+  margin $unit_spacing-1 0
