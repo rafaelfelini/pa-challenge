@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { auth as firebaseAuth } from 'firebase'
 import App from './components/App';
+import Loading from './components/Loading';
 import AccountFormContainer from './components/AccountFormContainer';
 import LoginFormContainer from './components/LoginFormContainer';
 import ProductFormContainer from './components/ProductFormContainer';
@@ -54,9 +55,7 @@ class Routes extends React.Component {
 
     if (isLoading) {
       return (
-        <h3>
-          'Carregando'
-        </h3>
+        <Loading />
       )
     }
 

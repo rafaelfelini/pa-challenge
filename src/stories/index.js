@@ -2,9 +2,10 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { storiesOf, action } from '@kadira/storybook';
 import Button from '../components/Button';
-import HeaderControls from '../components/HeaderControls';
 import Field from '../components/Field';
 import Header from '../components/Header';
+import HeaderControls from '../components/HeaderControls';
+import Loading from '../components/Loading';
 import ProductItem from '../components/ProductItem';
 import '../index.css';
 
@@ -76,3 +77,6 @@ storiesOf('Product Item', module)
       <ProductItem title="Foo Bar Item" id="12jbibi12j" description="Foo bar description" price="9990"/>
     </BrowserRouter>
   ));
+
+storiesOf('Loading', module)
+  .add('Default', () => (<Loading />));

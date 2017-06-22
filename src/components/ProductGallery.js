@@ -4,7 +4,7 @@ import logoGrey from '../img/logo-grey.svg';
 
 class ProductGallery extends React.Component {
   state = {
-    mainImage: this.props.image ? this.props.image[0] : undefined
+    mainImage: this.props.images[0]
   }
 
   handleGalleryNavigation(e) {
@@ -31,7 +31,7 @@ class ProductGallery extends React.Component {
         </div>
 
         {
-          images
+          images.length
           ? (
             <div className="product-gallery__nav">
               {
@@ -61,7 +61,7 @@ ProductGallery.propTypes = {
 };
 
 ProductGallery.defaultProps = {
-  images: undefined,
+  images: [],
 };
 
 export default ProductGallery;

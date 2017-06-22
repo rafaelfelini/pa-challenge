@@ -50,7 +50,6 @@ const ProductDetail = ({
 ProductDetail.propTypes = {
   description: PropTypes.string,
   images: PropTypes.array,
-  isLoading: PropTypes.bool,
   price: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]),
   title: PropTypes.string,
 };
@@ -58,7 +57,6 @@ ProductDetail.propTypes = {
 ProductDetail.defaultProps = {
   description: undefined,
   images: undefined,
-  isLoading: true,
   price: undefined,
   title: undefined,
 };

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import Loading from './Loading'
 import ProductDetail from './ProductDetail'
 import { get as productGet } from '../utils/firebase/product';
 
@@ -7,6 +8,7 @@ class ProductDetailContainer extends React.Component {
   state = {
     product: {},
     removed: false,
+    isLoading: true,
   }
 
   componentWillMount() {
@@ -22,7 +24,10 @@ class ProductDetailContainer extends React.Component {
   }
 
   productAdd(product) {
-    this.setState({ product });
+    this.setState({
+      product,
+      isLoading: false,
+    });
   }
 
   productChange(product) {
@@ -47,11 +52,18 @@ class ProductDetailContainer extends React.Component {
     const {
       product,
       removed,
+      isLoading,
     } = this.state;
 
     if (removed) {
       return (
         <Redirect to="/" />
+      );
+    }
+
+    if (isLoading) {
+      return (
+        <Loading />
       );
     }
 
