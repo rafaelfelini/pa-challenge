@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 import Field from './Field';
 import { HeaderControls, HeaderControlsSection } from './HeaderControls';
+import ProductItem from './ProductItem';
 
 const ProductsList = ({
-  onValueChange,
-  onSubmit,
-  onResetPassword,
-  errorMsg,
-  isSubmiting,
+  products
 }) => (
   <div className="products-list">
     <HeaderControls>
@@ -23,17 +20,21 @@ const ProductsList = ({
     </HeaderControls>
 
     <div className="products-list__container">
-      items
+      {
+        products.map((product) => (
+          <ProductItem key={product.id} {...product} />
+        ))
+      }
     </div>
   </div>
 );
 
 ProductsList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape()),
+  products: PropTypes.arrayOf(PropTypes.shape()),
 };
 
 ProductsList.defaultProps = {
-  items: [],
+  products: [],
 };
 
 export default ProductsList;

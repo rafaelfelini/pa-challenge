@@ -1,0 +1,58 @@
+.product-item
+  flex 0 0 100%
+  height $unit_product-item-height
+  display flex
+  margin 0 0 $unit_spacing-2 0
+  background-color $color_grey-0
+  text-decoration none
+  transition background-color $unit_transition
+
+  &:hover
+    background-color darken($color_grey-0, 3)
+
+  +breakpoint(md)
+    flex 0 0 s('calc(50% - %s)', ($unit_spacing-2/2))
+    margin 0 $unit_spacing-2 $unit_spacing-2 0
+
+    &:nth-child(2n+2)
+      margin 0 0 $unit_spacing-2
+
+.product-item__photo
+  background-color $color_grey-1
+  background-position center
+  background-repeat no-repeat
+  background-size 80%
+  height $unit_product-item-height
+  width $unit_product-item-height
+  overflow hidden
+  display flex
+  align-items center
+  justify-content center
+
+.product-item__img
+  max-height 100%
+
+.product-item__content
+  display flex
+  flex 1
+  flex-direction column
+  padding $unit_spacing-1
+
+.product-item__heading
+.product-item__description
+.product-item__price
+  margin 0
+
+.product-item__heading
+  font-size 1rem
+  color $color_orange-5
+  margin-bottom $unit_spacing-0
+
+.product-item__description
+  font-size 1rem
+  color $color_grey-8
+  margin-bottom $unit_spacing-0
+
+.product-item__price
+  font-size 1.175rem
+  color $color_green-7

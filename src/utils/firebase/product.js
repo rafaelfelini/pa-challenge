@@ -16,3 +16,33 @@ export function create (productData) {
       ...productData
     }));
 };
+
+export function getAll (settings) {
+  const {
+    onChildAdd,
+    onChildChanged,
+    onChildRemoved,
+  } = settings;
+
+  const ref = firebaseDatabase().ref().child('products');
+
+  if (onChildAdd) {
+    ref.on('child_added', (snapshot) => {
+      onChildAdd(snapshot.key, snapshot.val());
+    })
+  }
+
+  if (onChildChanged) {
+    ref.on('child_changed', (snapshot) => {
+      onChildChanged(snapshot.key, snapshot.val());
+    })
+  }
+
+  if (onChildRemoved) {
+    ref.on('child_removed', (snapshot) => {
+      onChildRemoved(snapshot.key);
+    })
+  }
+
+  return ref;
+}
