@@ -9,7 +9,7 @@
   "commentSpace": "always",
   "cssLiteral": "never",
   "depthLimit": 4,
-  "duplicates": true,
+  "duplicates": false,
   "efficient": "always",
   "exclude": [],
   "extendPref": false,

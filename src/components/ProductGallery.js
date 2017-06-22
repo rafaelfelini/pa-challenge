@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import logoGrey from '../img/logo-grey.svg';
 
-// const ProductGallery = ({
-//   images,
-// }) =>
-
 class ProductGallery extends React.Component {
   state = {
     mainImage: this.props.image ? this.props.image[0] : undefined
