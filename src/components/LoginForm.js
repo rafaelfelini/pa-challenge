@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button';
-import Field from './Field';
 import { Form, FormControls } from './Form';
 import { HeaderControls, HeaderControlsSection } from './HeaderControls';
+import Button from './Button';
+import Field from './Field';
 
 const LoginForm = ({
   onValueChange,
@@ -23,6 +23,7 @@ const LoginForm = ({
       <Form
         onSubmit={onSubmit}
         errorMsg={errorMsg}
+        heading="Entrar com conta"
       >
         <Field
           onInput={onValueChange}

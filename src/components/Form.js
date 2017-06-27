@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Heading from './Heading';
 
 const Form = ({
   children,
   errorMsg,
+  heading,
   isLoading,
   onSubmit,
   successMsg,
 }) => (
   <div className="form">
+    {heading ? (<Heading Tag="h2">{heading}</Heading>) : null}
+
     {
       isLoading
       ? 'Carregando'
@@ -41,15 +45,17 @@ const Form = ({
 
 Form.propTypes = {
   errorMsg: PropTypes.string,
-  successMsg: PropTypes.string,
+  heading: PropTypes.string,
   isLoading: PropTypes.bool,
   onSubmit: PropTypes.func.isRequired,
+  successMsg: PropTypes.string,
 };
 
 Form.defaultProps = {
   errorMsg: '',
-  successMsg: '',
+  heading: '',
   isLoading: false,
+  successMsg: '',
 };
 
 const FormFieldset = ({children}) => (

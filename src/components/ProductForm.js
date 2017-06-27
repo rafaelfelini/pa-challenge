@@ -18,6 +18,7 @@ const ProductForm = ({ onValueChange, onSubmit, errorMsg, isSubmiting }) => (
       <Form
         onSubmit={onSubmit}
         errorMsg={errorMsg}
+        heading="Criar anuncio"
       >
         <Field
           onInput={onValueChange}

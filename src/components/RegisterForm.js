@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button';
-import Field from './Field';
 import { Form, FormControls } from './Form';
 import { HeaderControls, HeaderControlsSection } from './HeaderControls';
+import Button from './Button';
+import Field from './Field';
 
 const RegisterForm = ({ onValueChange, onSubmit, errorMsg, isSubmiting }) => (
   <div className="register-form">
@@ -17,7 +17,9 @@ const RegisterForm = ({ onValueChange, onSubmit, errorMsg, isSubmiting }) => (
       <Form
         onSubmit={onSubmit}
         errorMsg={errorMsg}
+        heading="Cadastrar conta"
       >
+
         <Field
           onInput={onValueChange}
           name="name"
