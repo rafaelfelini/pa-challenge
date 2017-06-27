@@ -53,9 +53,16 @@ export function getAllRealtime (settings) {
     onChildAdd,
     onChildChanged,
     onChildRemoved,
+    onceValue,
   } = settings;
 
   const ref = firebaseDatabase().ref().child('products');
+
+  if (onceValue) {
+    ref.once('value', (snapshot) => {
+      onceValue(snapshot.key, snapshot.val());
+    })
+  }
 
   if (onChildAdd) {
     ref.on('child_added', (snapshot) => {

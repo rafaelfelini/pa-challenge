@@ -5,6 +5,7 @@ import { getAllRealtime as productGetAllRealtime } from '../utils/data/product';
 class ProductsListContainer extends React.Component {
   state = {
     products: [],
+    isLoading: true
   }
 
   componentWillMount() {
@@ -13,6 +14,12 @@ class ProductsListContainer extends React.Component {
 
   componentWillUnmount() {
     this.realtimeGetAllProductsClose();
+  }
+
+  isLoaded () {
+    this.setState({
+      isLoading: false
+    });
   }
 
   realtimeGetAllProductsClose() {
@@ -60,16 +67,18 @@ class ProductsListContainer extends React.Component {
       onChildAdd: this.productAdd.bind(this),
       onChildChanged: this.productChange.bind(this),
       onChildRemoved: this.productRemove.bind(this),
+      onceValue: this.isLoaded.bind(this)
     });
   }
 
   render () {
     const {
       products,
+      isLoading
     } = this.state;
 
     return (
-      <ProductsList products={products} />
+      <ProductsList isLoading={isLoading} products={products} />
     );
   }
 }
