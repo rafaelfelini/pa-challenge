@@ -22,6 +22,11 @@ class RegisterFormContainer extends React.Component {
       name,
       password,
       phoneNumber,
+      accountBank,
+      accountType,
+      accountAgency,
+      accountNumber,
+      document,
     } = this.state;
 
     auth({
@@ -29,6 +34,11 @@ class RegisterFormContainer extends React.Component {
       name,
       password,
       phoneNumber,
+      accountBank,
+      accountType,
+      accountAgency,
+      accountNumber,
+      document,
     })
       .catch((error) => {
         this.setState({

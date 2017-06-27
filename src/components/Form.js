@@ -59,11 +59,20 @@ Form.defaultProps = {
   successMsg: '',
 };
 
-const FormFieldset = ({children}) => (
-  <div className="form__fieldset form__fieldset--controls">
+const FormFieldset = ({children, heading}) => (
+  <div className="form__fieldset">
+    {heading ? (<Heading Element="h3">{heading}</Heading>) : null}
     {children}
   </div>
 );
+
+FormFieldset.propTypes = {
+  heading: PropTypes.string
+}
+
+FormFieldset.defaultProps = {
+  heading: ''
+}
 
 const FormControls = ({children}) => (
   <div className="form__fieldset form__fieldset--controls">

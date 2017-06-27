@@ -1,4 +1,5 @@
 import { auth as firebaseAuth, database as firebaseDatabase } from 'firebase'
+import { merge } from 'lodash'
 
 export function getId () {
   return firebaseAuth().currentUser.uid
@@ -24,12 +25,16 @@ export function getAll () {
     })
 }
 
-export function update (userInfo) {
-  return firebaseDatabase()
-    .ref()
-    .child(`users/${userInfo.uid}/info`)
-    .set(userInfo)
-    .then(() => userInfo)
+export function update (newUserInfo) {
+  return get().then((currentUserInfo) => {
+    const userInfo = merge(currentUserInfo, newUserInfo)
+
+    return firebaseDatabase()
+      .ref()
+      .child(`users/${userInfo.uid}/info`)
+      .set(userInfo)
+      .then(() => userInfo)
+  })
 }
 
 export function create (userInfo) {

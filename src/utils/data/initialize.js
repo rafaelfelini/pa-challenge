@@ -1,6 +1,9 @@
 import { initializeApp as firebaseInitialize } from 'firebase';
 
 export default function () {
+  /**
+   * settings
+   */
   const config = {
     apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
     authDomain: `${process.env.REACT_APP_FIREBASE_APP}.firebaseapp.com`,
@@ -10,5 +13,8 @@ export default function () {
     storageBucket: `${process.env.REACT_APP_FIREBASE_APP}.appspot.com`,
   };
 
+  /**
+   * initialize
+   */
   firebaseInitialize(config);
 }
