@@ -9,9 +9,10 @@ const ProductItem = ({
   images,
   id,
   price,
+  sold,
   title,
 }) => (
-  <Link to={`/product/${id}`} className="product-item">
+  <Link to={`/product/${id}`} className={`product-item ${sold ? 'product-item--sold' : ''}`}>
     <div
       className="product-item__photo"
       style={!images ? {backgroundImage: `url(${logoGrey})`} : null}
@@ -25,6 +26,7 @@ const ProductItem = ({
 
     <div className="product-item__content">
       <h4 className="product-item__heading">
+        {sold ? '(Vendido) ' : null}
         {title}
       </h4>
       {
@@ -41,6 +43,7 @@ const ProductItem = ({
 
 ProductItem.propTypes = {
   description: PropTypes.string,
+  sold: PropTypes.bool,
   images: PropTypes.array,
   id: PropTypes.string.isRequired,
   price: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]).isRequired,
@@ -50,6 +53,7 @@ ProductItem.propTypes = {
 ProductItem.defaultProps = {
   description: undefined,
   images: undefined,
+  sold: false,
 };
 
 export default ProductItem;

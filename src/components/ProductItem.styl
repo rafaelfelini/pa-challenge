@@ -10,12 +10,17 @@
   &:hover
     background-color darken($color_grey-0, 3)
 
+  &--sold
+    opacity .6
+
   +breakpoint(md)
     flex 0 0 s('calc(50% - %s)', ($unit_spacing-2/2))
     margin 0 $unit_spacing-2 $unit_spacing-2 0
 
     &:nth-child(2n+2)
       margin 0 0 $unit_spacing-2
+
+
 
 .product-item__photo
   align-items center
