@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Heading from './Heading';
+import Loading from './Loading';
 
 const Form = ({
   children,
@@ -15,7 +16,7 @@ const Form = ({
 
     {
       isLoading
-      ? 'Carregando'
+      ? <Loading />
       : (
         <form className="form__form" onSubmit={(e) => { onSubmit(e); }}>
           {children}
