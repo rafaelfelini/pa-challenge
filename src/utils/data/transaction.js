@@ -81,3 +81,9 @@ export function create (transactionInfo) {
 
   })
 }
+
+export function get (id) {
+  return pagarmeClient.connect(pagarmeSettings)
+    .then(client => client.transactions.find({ id }))
+    .then(recipient => recipient)
+}

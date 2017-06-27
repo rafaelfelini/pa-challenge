@@ -131,6 +131,12 @@ class ProductBuyContainer extends React.Component {
       );
     }
 
+    if (product.sold) {
+      return (
+        <Redirect to={`/product/${id}/sold`} />
+      );
+    }
+
     return (
       <ProductBuy id={id} {...product}>
         <ProductBuyForm

@@ -69,6 +69,12 @@ class ProductDetailContainer extends React.Component {
       );
     }
 
+    if (product.sold) {
+      return (
+        <Redirect to={`/product/${id}/sold`} />
+      );
+    }
+
     return (
       <ProductDetail id={id} {...product} />
     );

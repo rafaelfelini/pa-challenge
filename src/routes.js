@@ -7,6 +7,7 @@ import AccountFormContainer from './components/AccountFormContainer';
 import LoginFormContainer from './components/LoginFormContainer';
 import ProductFormContainer from './components/ProductFormContainer';
 import ProductBuyContainer from './components/ProductBuyContainer';
+import ProductSoldContainer from './components/ProductSoldContainer';
 import ProductDetailContainer from './components/ProductDetailContainer';
 import ProductsListContainer from './components/ProductsListContainer';
 import RegisterFormContainer from './components/RegisterFormContainer';
@@ -68,6 +69,7 @@ class Routes extends React.Component {
             <Route path='/' exact component={ProductsListContainer} />
             <PrivateRoute path="/product/create" component={ProductFormContainer} isAuthenticated={isAuthenticated} />
             <PrivateRoute path="/product/:id/buy" component={ProductBuyContainer} isAuthenticated={isAuthenticated} />
+            <PrivateRoute path="/product/:id/sold" component={ProductSoldContainer} isAuthenticated={isAuthenticated} />
             <Route path="/product/:id" component={ProductDetailContainer} />
 
             <PublicRoute path="/register" component={RegisterFormContainer} isAuthenticated={isAuthenticated} />
