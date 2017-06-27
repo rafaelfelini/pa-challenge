@@ -20,7 +20,6 @@ const RegisterForm = ({ onValueChange, onSubmit, errorMsg, isSubmiting }) => (
         errorMsg={errorMsg}
         heading="Cadastrar conta"
       >
-
         <FormFieldset heading="Dados cadastrais">
           <Field
             onInput={onValueChange}
@@ -118,7 +117,7 @@ const RegisterForm = ({ onValueChange, onSubmit, errorMsg, isSubmiting }) => (
           />
           <Field
             onInput={onValueChange}
-            name="document"
+            name="documentNumber"
             type="text"
             label="CPF do Titular"
             placeholder="111.222.333-12"

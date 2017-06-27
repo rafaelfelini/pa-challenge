@@ -1,5 +1,6 @@
 import React from 'react'
 import { get as userGet, update as userUpdate } from '../utils/data/user'
+import { get as recipienGet } from '../utils/data/recipients'
 import AccountForm from './AccountForm'
 
 class AccountFormContainer extends React.Component {
@@ -8,6 +9,11 @@ class AccountFormContainer extends React.Component {
     email: '',
     name: '',
     phoneNumber: '',
+    accountBank: '',
+    accountType: '',
+    accountAgency: '',
+    accountNumber: '',
+    documentNumber: '',
     errorMsg: '',
     successMsg: '',
     isLoading: true,
@@ -24,9 +30,27 @@ class AccountFormContainer extends React.Component {
         email: userInfo.email,
         name: userInfo.name,
         phoneNumber: userInfo.phoneNumber,
-        isLoading: false,
       });
+
+      recipienGet(userInfo.recipient.id).then((recipientInfo) => {
+        const bankAccount = recipientInfo.bank_account;
+        const accountBank = bankAccount.bank_code;
+        const accountType = bankAccount.type;
+        const accountAgency = `${bankAccount.agencia}${bankAccount.agencia_dv ? '-' + bankAccount.agencia_dv : ''}`;
+        const accountNumber = `${bankAccount.conta}${bankAccount.conta_dv ? '-' + bankAccount.conta_dv : ''}`;
+        const documentNumber = bankAccount.document_number;
+
+        this.setState({
+          accountBank,
+          accountType,
+          accountAgency,
+          accountNumber,
+          documentNumber,
+          isLoading: false,
+        });
+      })
     })
+
   }
 
   handleSubmit(e) {
@@ -72,23 +96,33 @@ class AccountFormContainer extends React.Component {
   render () {
     const {
       email,
+      name,
+      phoneNumber,
+      accountBank,
+      accountType,
+      accountAgency,
+      accountNumber,
+      documentNumber,
       errorMsg,
       successMsg,
       isLoading,
       isSubmiting,
-      name,
-      phoneNumber,
     } = this.state
 
     return (
       <AccountForm
         email={email}
+        name={name}
+        phoneNumber={phoneNumber}
+        accountBank={accountBank}
+        accountType={accountType}
+        accountAgency={accountAgency}
+        accountNumber={accountNumber}
+        documentNumber={documentNumber}
         errorMsg={errorMsg}
         successMsg={successMsg}
         isLoading={isLoading}
         isSubmiting={isSubmiting}
-        name={name}
-        phoneNumber={phoneNumber}
         onValueChange={this.valueChange.bind(this)}
         onSubmit={this.handleSubmit.bind(this)}
       />

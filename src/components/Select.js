@@ -23,6 +23,7 @@ class Select extends React.Component {
       label,
       name,
       required,
+      readOnly,
       placeholder,
       options
     } = this.props;
@@ -34,6 +35,8 @@ class Select extends React.Component {
       onChange: this.handleChange.bind(this),
       value,
       disabled,
+      readOnly,
+      tabIndex: readOnly ? '-1' : undefined,
       name,
       required
     };
@@ -64,7 +67,8 @@ Select.propTypes = {
     label: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]).isRequired
   })),
   placeholder: PropTypes.string,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  readOnly: PropTypes.bool
 };
 
 Select.defaultProps = {
@@ -73,7 +77,8 @@ Select.defaultProps = {
   onChange: undefined,
   options: [],
   placeholder: '',
-  required: false
+  required: false,
+  readOnly: false
 };
 
 export default Select;

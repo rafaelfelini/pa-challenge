@@ -34,9 +34,13 @@
     padding $unit_spacing-1
 
   &:disabled
+  &:read-only
     background-color $color_grey-0
     color $color_grey-3
     cursor not-allowed
+    pointer-events none
+    touch-action none
+
 
   &--placeholder
     color $color_grey-1
