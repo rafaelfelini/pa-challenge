@@ -35,7 +35,7 @@ const RegisterForm = ({ onValueChange, onSubmit, errorMsg, isSubmiting }) => (
             name="phoneNumber"
             type="text"
             label="Telefone"
-            placeholder="41 99912 3456"
+            placeholder="43 99912 3456"
             disabled={isSubmiting}
           />
           <Field
@@ -53,6 +53,63 @@ const RegisterForm = ({ onValueChange, onSubmit, errorMsg, isSubmiting }) => (
             type="password"
             label="Senha"
             placeholder="******"
+            disabled={isSubmiting}
+            required
+          />
+        </FormFieldset>
+
+        <FormFieldset heading="Endereço">
+          <Field
+            onInput={onValueChange}
+            name="addressZipcode"
+            type="text"
+            label="CEP"
+            placeholder="00000-000"
+            disabled={isSubmiting}
+            required
+          />
+          <Field
+            onInput={onValueChange}
+            name="addressStreet"
+            type="text"
+            label="Rua"
+            placeholder="Rua do roncador"
+            disabled={isSubmiting}
+            required
+          />
+          <Field
+            onInput={onValueChange}
+            name="addressNumber"
+            type="text"
+            label="Número"
+            placeholder="1245"
+            disabled={isSubmiting}
+            required
+          />
+          <Field
+            onInput={onValueChange}
+            name="addressNeighborhood"
+            type="text"
+            label="Bairro"
+            placeholder="Conjunto Vendedores"
+            disabled={isSubmiting}
+            required
+          />
+          <Field
+            onInput={onValueChange}
+            name="addressCity"
+            type="text"
+            label="Cidade"
+            placeholder="Londrina"
+            disabled={isSubmiting}
+            required
+          />
+          <Field
+            onInput={onValueChange}
+            name="addressUf"
+            type="text"
+            label="Estado"
+            placeholder="PR"
             disabled={isSubmiting}
             required
           />

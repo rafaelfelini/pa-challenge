@@ -31,11 +31,15 @@ class Select extends React.Component {
     const { value } = this.state;
 
     const fieldProps = {
-      className: `field__field field__field--select field__field--${value ? 'filled' : 'placeholder'}`,
+      className: `
+        field__field
+        field__field--select
+        field__field--${value ? 'filled' : 'placeholder'}
+        ${readOnly ? 'field__field--read-only' : ''}
+      `,
       onChange: this.handleChange.bind(this),
       value,
       disabled,
-      readOnly,
       tabIndex: readOnly ? '-1' : undefined,
       name,
       required

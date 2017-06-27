@@ -34,6 +34,7 @@ class Field extends React.Component {
 
   render() {
     const {
+      autoComplete,
       disabled,
       label,
       name,
@@ -50,6 +51,7 @@ class Field extends React.Component {
     const fieldProps = {
       className: `field__field field__field--${type}`,
       onInput: this.handleInput.bind(this),
+      autoComplete,
       value,
       disabled,
       name,
@@ -75,6 +77,7 @@ class Field extends React.Component {
 }
 
 Field.propTypes = {
+  autoComplete: PropTypes.string,
   defaultValue: PropTypes.string,
   disabled: PropTypes.bool,
   mask: PropTypes.oneOf([ 'currency' ]),
@@ -87,6 +90,7 @@ Field.propTypes = {
 };
 
 Field.defaultProps = {
+  autoComplete: undefined,
   defaultValue: '',
   disabled: false,
   mask: undefined,

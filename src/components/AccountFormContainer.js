@@ -29,7 +29,7 @@ class AccountFormContainer extends React.Component {
         uid: userInfo.uid,
         email: userInfo.email,
         name: userInfo.name,
-        phoneNumber: userInfo.phoneNumber,
+        phoneNumber: userInfo.phone.number,
       });
 
       recipienGet(userInfo.recipient.id).then((recipientInfo) => {
@@ -70,7 +70,9 @@ class AccountFormContainer extends React.Component {
       uid,
       email,
       name,
-      phoneNumber,
+      phone: {
+        number: phoneNumber
+      },
     })
       .then(() => {
         this.setState({

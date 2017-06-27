@@ -1,15 +1,27 @@
 import React from 'react'
-import { auth } from '../utils/data/auth'
+import { create as authCreate } from '../utils/data/auth'
 import RegisterForm from './RegisterForm'
 
 class RegisterFormContainer extends React.Component {
   state = {
-    email: '',
     errorMsg: '',
+    isSubmiting: false,
+
+    email: '',
     name: '',
     password: '',
     phoneNumber: '',
-    isSubmiting: false,
+    accountBank: '',
+    accountType: '',
+    accountAgency: '',
+    accountNumber: '',
+    documentNumber: '',
+    addressZipcode: '',
+    addressStreet: '',
+    addressNeighborhood: '',
+    addressNumber: '',
+    addressCity: '',
+    addressUf: '',
   }
 
   handleSubmit(e) {
@@ -27,18 +39,34 @@ class RegisterFormContainer extends React.Component {
       accountAgency,
       accountNumber,
       documentNumber,
+      addressZipcode,
+      addressStreet,
+      addressNeighborhood,
+      addressNumber,
+      addressCity,
+      addressUf,
     } = this.state;
 
-    auth({
+    authCreate({
       email,
       name,
       password,
-      phoneNumber,
       accountBank,
       accountType,
       accountAgency,
       accountNumber,
       documentNumber,
+      phone: {
+        number: phoneNumber
+      },
+      address: {
+        zipcode: addressZipcode,
+        street: addressStreet,
+        neighborhood: addressNeighborhood,
+        number: addressNumber,
+        city: addressCity,
+        uf: addressUf,
+      }
     })
       .catch((error) => {
         this.setState({
