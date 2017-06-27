@@ -6,6 +6,7 @@ import { getRealtime as productGetRealtime } from '../utils/data/product';
 
 class ProductDetailContainer extends React.Component {
   state = {
+    id: this.props.match.params.id,
     product: {},
     removed: false,
     isLoading: true,
@@ -39,7 +40,7 @@ class ProductDetailContainer extends React.Component {
   }
 
   realtimeGetProductInit() {
-    const id = this.props.match.params.id;
+    const { id } = this.state;
 
     this.getRealtimeProducts = productGetRealtime(id, {
       onChildAdd: this.productAdd.bind(this),
@@ -50,6 +51,7 @@ class ProductDetailContainer extends React.Component {
 
   render () {
     const {
+      id,
       product,
       removed,
       isLoading,
@@ -68,7 +70,7 @@ class ProductDetailContainer extends React.Component {
     }
 
     return (
-      <ProductDetail {...product} />
+      <ProductDetail id={id} {...product} />
     );
   }
 }

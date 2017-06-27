@@ -34,7 +34,8 @@
     padding $unit_spacing-1
 
   &:disabled
-  &:read-only
+  &--read-only
+  &:read-only:not(.field__field--select)
     background-color $color_grey-0
     color $color_grey-3
 

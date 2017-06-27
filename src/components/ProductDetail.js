@@ -20,7 +20,7 @@ const ProductDetail = ({
       </HeaderControlsSection>
     </HeaderControls>
 
-    <div className="product-detail__container">
+    <main className="product-detail__container">
       <div
         className="product-detail__gallery"
         style={!images ? {backgroundImage: `url(${logoGrey})`} : null}
@@ -42,23 +42,26 @@ const ProductDetail = ({
           ? (<p className="product-detail__description">{description}</p>)
           : ''
         }
+
+        <div className="product-detail__controls">
+          <Button url={`/product/${id}/buy`} label="Comprar produto" />
+        </div>
       </div>
-    </div>
+    </main>
   </div>
 );
 
 ProductDetail.propTypes = {
+  id: PropTypes.string.isRequired,
   description: PropTypes.string,
   images: PropTypes.array,
-  price: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]),
-  title: PropTypes.string,
+  price: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]).isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 ProductDetail.defaultProps = {
   description: undefined,
   images: undefined,
-  price: undefined,
-  title: undefined,
 };
 
 export default ProductDetail;

@@ -52,7 +52,8 @@ const AccountForm = ({
             onInput={onValueChange}
             name="phoneNumber"
             type="text"
-            label="Telefone"
+            label="Telefone (sem DDI ou DDD)"
+            placeholder="996012345"
             defaultValue={phoneNumber}
             disabled={isSubmiting}
             required

@@ -1,3 +1,4 @@
+import { merge } from 'lodash';
 import { database as firebaseDatabase } from 'firebase';
 import { getId as userGetId } from './user'
 
@@ -17,6 +18,19 @@ export function create (productData) {
       ...productData
     }));
 };
+
+export function get (id) {
+  return firebaseDatabase()
+    .ref()
+    .child('products')
+    .orderByKey()
+    .equalTo(id)
+    .once('value', (snapshot) => snapshot)
+    .then((snapshot) => {
+      const productInfo = snapshot.val();
+      return productInfo[id]
+    })
+}
 
 export function getRealtime (id, settings) {
   const {
@@ -83,4 +97,16 @@ export function getAllRealtime (settings) {
   }
 
   return ref;
+}
+
+export function update (id, newProductInfo) {
+  return get(id).then((currentProductInfo) => {
+    const productInfo = merge(currentProductInfo, newProductInfo)
+
+    return firebaseDatabase()
+      .ref()
+      .child(`products/${id}`)
+      .set(productInfo)
+      .then(() => productInfo)
+  })
 }

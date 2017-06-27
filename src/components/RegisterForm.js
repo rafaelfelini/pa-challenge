@@ -34,8 +34,8 @@ const RegisterForm = ({ onValueChange, onSubmit, errorMsg, isSubmiting }) => (
             onInput={onValueChange}
             name="phoneNumber"
             type="text"
-            label="Telefone"
-            placeholder="43 99912 3456"
+            label="Telefone (sem DDI ou DDD)"
+            placeholder="996012345"
             disabled={isSubmiting}
           />
           <Field
