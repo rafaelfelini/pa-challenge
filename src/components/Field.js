@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import formatCurrency from '../utils/format-currency';
 
-// const Field = () =>
-
 class Field extends React.Component {
   state = {
     value: this.props.defaultValue
@@ -50,7 +48,7 @@ class Field extends React.Component {
     let FieldTag = 'input';
 
     const fieldProps = {
-      className: `field__input field__input--${type}`,
+      className: `field__field field__field--${type}`,
       onInput: this.handleInput.bind(this),
       value,
       disabled,
@@ -85,7 +83,7 @@ Field.propTypes = {
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
-  type: PropTypes.oneOf([ 'text', 'textarea', 'search', 'number', 'email', 'password' ]),
+  type: PropTypes.oneOf([ 'text', 'textarea', 'search', 'number', 'email', 'password', 'date' ]),
 };
 
 Field.defaultProps = {
