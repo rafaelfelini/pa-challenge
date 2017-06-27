@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 import Loading from './Loading'
 import ProductDetail from './ProductDetail'
-import { get as productGet } from '../utils/data/product';
+import { getRealtime as productGetRealtime } from '../utils/data/product';
 
 class ProductDetailContainer extends React.Component {
   state = {
@@ -41,7 +41,7 @@ class ProductDetailContainer extends React.Component {
   realtimeGetProductInit() {
     const id = this.props.match.params.id;
 
-    this.getRealtimeProducts = productGet(id, {
+    this.getRealtimeProducts = productGetRealtime(id, {
       onChildAdd: this.productAdd.bind(this),
       onChildChanged: this.productChange.bind(this),
       onChildRemoved: this.productRemove.bind(this),

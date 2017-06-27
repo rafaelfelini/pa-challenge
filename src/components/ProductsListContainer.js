@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductsList from './ProductsList'
-import { getAll as productGetAll } from '../utils/data/product';
+import { getAllRealtime as productGetAllRealtime } from '../utils/data/product';
 
 class ProductsListContainer extends React.Component {
   state = {
@@ -56,7 +56,7 @@ class ProductsListContainer extends React.Component {
   }
 
   realtimeGetAllProductsInit() {
-    this.getRealtimeProducts = productGetAll({
+    this.getRealtimeProducts = productGetAllRealtime({
       onChildAdd: this.productAdd.bind(this),
       onChildChanged: this.productChange.bind(this),
       onChildRemoved: this.productRemove.bind(this),

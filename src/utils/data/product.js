@@ -1,10 +1,11 @@
-import { auth as firebaseAuth, database as firebaseDatabase } from 'firebase';
+import { database as firebaseDatabase } from 'firebase';
+import { getId as userGetId } from './user'
 
 export function create (productData) {
-  const user = firebaseAuth().currentUser;
+  const userId = userGetId();
   const key = firebaseDatabase().ref().child('products').push().key;
 
-  productData.user = user.uid;
+  productData.userId = userId;
   productData.createdAt = firebaseDatabase.ServerValue.TIMESTAMP;
 
   return firebaseDatabase()
@@ -17,7 +18,7 @@ export function create (productData) {
     }));
 };
 
-export function get (id, settings) {
+export function getRealtime (id, settings) {
   const {
     onChildAdd,
     onChildChanged,
@@ -47,7 +48,7 @@ export function get (id, settings) {
   return ref;
 }
 
-export function getAll (settings) {
+export function getAllRealtime (settings) {
   const {
     onChildAdd,
     onChildChanged,
